@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style-vertical.css">
+    <title>Quizztador - Recrutare</title>
+</head>
+<body bgcolor="#f0f8ff">
+
+    <ul id="navi-bar">
+        <li><a href="home.html"><i class="icon icon-home"></i> Acasă</a></li>
+        <li><a href=""><i class="icon icon-news"></i> Noutăți</a></li>
+        <li><a href="profile.html"><i class="icon icon-profile"></i> Profil</a></li>
+        <li><a href=""><i class="icon icon-info"></i> Informații</a></li>
+    </ul>
+
+    <header>
+        <center>
+            <h1>Quizztador</h1>
+            <h2>Formular de înscriere</h2>
+        </center>
+    </header>
+
+    <main>
+        <center class="test">
+            <form action="login.html" target="_self" name="registerForm">
+                <fieldset>
+                    <legend><b>Datele noului cont</b></legend>
+                    <p>Alege o parolă puternică!</p>
+
+                    <label>Nume de utilizator: </label>
+                    <input type="text" name="new_user" size="30" maxlength="20" title="Alege un pseudonim unic">
+                    <br><br>
+
+                    <label>Parolă: </label>
+                    <input type="password" name="new_pass" size="30" maxlength="20">
+                    <br><br>
+
+                    <label>Vârsta (în ani): </label>
+                    <input type="number" name="age" min="10" max="99" step="1" value="18">
+                    <br><br>
+
+                    <label>Invită aliați (adrese email): </label><br>
+                    <input type="email" name="allies" multiple size="40" placeholder="email1@test.ro, email2@test.ro">
+                    <br><br>
+
+                    <strong>Alege facțiunea dorită:</strong><br>
+                    <input type="radio" name="faction" value="rosu" checked> Imperiul Roșu<br>
+                    <input type="radio" name="faction" value="albastru"> Imperiul Albastru<br>
+                    <input type="radio" name="faction" value="verde"> Imperiul Verde<br><br>
+
+                    <label>Titlul de pornire: </label>
+                    <select name="rank" size="1">
+                        <option value="taran">Țăran</option>
+                        <option value="scutier" selected>Scutier</option>
+                        <option value="cavaler">Cavaler</option>
+                    </select>
+                    <br><br>
+
+                    <p>Regulamentul jocului:</p>
+                    <textarea name="rules" readonly cols="50" rows="3">Este strict interzisă folosirea programelor de trișat sau a dicționarelor în timpul meciurilor!</textarea>
+                    <br><br>
+
+                    <input type="checkbox" name="terms" disabled checked> Sunt de acord cu regulile nescrise și scrise.
+                    <br><br>
+
+                    <input type="submit" value="Creează Contul">
+                    <input type="reset" value="Șterge datele">
+                </fieldset>
+            </form>
+        </center>
+    </main>
+    
+    <footer>
+        <center>
+            <p>Quizztador</p>
+        </center>
+    </footer>
+</body>
+</html>

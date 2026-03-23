@@ -1,0 +1,53 @@
+:root {
+    --bg-color: #e6e6fa;
+    --nav-bg: #333333;
+    --nav-text: #ffffff;
+    --accent-color: #ff4500;
+    --border-color: #ccc;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: Arial, sans-serif;
+}
+
+#navi-bar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: var(--nav-bg);
+    display: flex;
+    justify-content: space-around;
+}
+
+#navi-bar li a {
+    display: block;
+    color: var(--nav-text);
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    position: relative;
+}
+
+#navi-bar li a:hover {
+    background-color: #555;
+}
+
+#navi-bar li a:hover::before {
+    content: "⚔️ ";
+}
+
+.icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('css_sprites.png'); 
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.icon-home    { background-position: -46px -10px; }
+.icon-news    { background-position: -46px -46px; }
+.icon-profile { background-position: -10px -46px; }
+.icon-info    { background-position: -10px -10px; }

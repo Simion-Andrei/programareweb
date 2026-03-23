@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-responsive.css">
+    <title>Quizztador - Profil Comandant</title>
+</head>
+<body bgcolor="#e6e6fa">
+
+    <header>
+        <center>
+            <h1>Profilul Comandantului</h1>
+            <h3>Statistici și Realizări Personale</h3>
+        </center>
+    </header>
+
+    <ul id="navi-bar">
+        <li><a href="home.html"><i class="icon icon-home"></i> Acasă</a></li>
+        <li><a href=""><i class="icon icon-news"></i> Noutăți</a></li>
+        <li><a href="profile.html"><i class="icon icon-profile"></i> Profil</a></li>
+        <li><a href=""><i class="icon icon-info"></i> Informații</a></li>
+    </ul>
+
+    <br>
+
+    <main class="dashboard-container">
+        
+        <div class="card">
+            <h3 class="card-title">Rang Curent</h3>
+            <p class="card-data">Scutier de Elită</p>
+            <p>Facțiune: <strong>Imperiul Roșu</strong></p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Nr. victorii</h3>
+            <p class="card-data">42 Victorii</p>
+            <p>Punctaj total: <strong>4500 pct.</strong></p>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Obiecte</h3>
+            <ul style="text-align: left;">
+                <li>3x Poțiune</li>
+                <li>1x Scut</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Misiune Activă</h3>
+            <p><em>"Răspunde la 5 întrebări de Istorie."</em></p>
+            <progress value="60" max="100"></progress> 60%
+        </div>
+
+    </main>
+
+    <div class="table-wrapper">
+            <h3 style="text-align: center; color: #333;">Istoric Bătălii Recente</h3>
+            <table class="responsive-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Oponent</th>
+                        <th>Facțiune</th>
+                        <th>Teritoriu Cucerit</th>
+                        <th>Domeniu Întrebări</th>
+                        <th>Scor</th>
+                        <th>Rezultat</th>
+                        <th>XP Câștigat</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12.11.2023</td>
+                        <td>player1</td>
+                        <td>Hoarda Verde</td>
+                        <td>Moldova</td>
+                        <td>Istorie</td>
+                        <td>5 - 3</td>
+                        <td style="color: green;"><b>Victorie</b></td>
+                        <td>+150</td>
+                    </tr>
+                    <tr>
+                        <td>10.11.2023</td>
+                        <td>player2</td>
+                        <td>Alianța Albastră</td>
+                        <td>Transilvania</td>
+                        <td>Științe</td>
+                        <td>2 - 5</td>
+                        <td style="color: red;"><b>Înfrângere</b></td>
+                        <td>+10</td>
+                    </tr>
+                    <tr>
+                        <td>08.11.2023</td>
+                        <td>player3</td>
+                        <td>Hoarda Verde</td>
+                        <td>Muntenia</td>
+                        <td>Literatură</td>
+                        <td>4 - 4</td>
+                        <td style="color: orange;"><b>Remiză</b></td>
+                        <td>+50</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    <footer>
+        <center>
+            <br>
+            <a href="login.html" target="_self"><b>Deconectare</b></a>
+            <p>Quizztador</p>
+        </center>
+    </footer>
+</body>
+</html>
