@@ -6,7 +6,6 @@
     <title>Quizztador - Acasă</title>
 </head>
 <body bgcolor="#e6e6fa">
-
     <header>
         <center>
             <h1>Bun venit în Tabăra de Bază!</h1>
@@ -21,12 +20,21 @@
         <li><a href=""><i class="icon icon-info"></i> Informații</a></li>
     </ul>
 
+    <div id="carousel-container" class="carousel">
+        <button id="carousel-prev" class="carousel-btn">&lt;</button>
+        <button id="carousel-next" class="carousel-btn">&gt;</button>
+    </div>
 
     <div align="center">
         <h4>Informații Rapide</h4>
         <h5>Mesajul zilei: Fii pe fază pentru turneul de la ora 20:00!</h5>
     </div>
 
+    <br>
+
+    <div id="classic-table-container"></div>
+    <br>
+    <div id="vertical-table-container"></div>
     <br>
 
     <table border="2" width="95%" align="center" bgcolor="#ffffff">
@@ -81,7 +89,7 @@
             <td valign="top">
                 <p>Aici poți vedea tipurile de întrebări:</p>
                 
-                <ul type="square">
+                <ul type="square" class="collapsible-list">
                     <li>Domenii de cunoștințe:
                         <ol type="A">
                             <li>Istorie & Geografie</li>
@@ -106,6 +114,30 @@
     </table>
 
     <br>
+
+    <center>
+        <h2>Contactează echipa de suport (Formular)</h2>
+        <form id="contactForm" onsubmit="return false;" style="border:1px solid #333; padding:20px; background:#fff; width:300px; border-radius:10px;">
+            <label for="msgTitle">Subiectul problemei:</label><br>
+            <input type="text" id="msgTitle" placeholder="Ex: Eroare de conectare"><br><br>
+
+            <label for="msgDate">Data apariției problemei:</label><br>
+            <input type="date" id="msgDate" required><br><br>
+
+            <label for="flagColor">Severitatea problemei (culoare):</label><br>
+            <input type="color" id="flagColor"><br><br>
+
+            <label for="mapFile">Atașează o captură de ecran:</label><br>
+            <input type="file" id="mapFile"><br><br>
+
+            <label for="msgDetails">Descrierea detaliată:</label><br>
+            <textarea id="msgDetails" placeholder="Descrie problema întâmpinată" rows="4"></textarea><br><br>
+            
+            <input type="submit" value="Trimite la Suport">
+        </form>
+    </center>
+
+    <br>
     <center>
         <a href="login.html" target="_self"><b>Deconectare (Părăsește tabăra)</b></a>
     </center>
@@ -115,5 +147,8 @@
             <p>Quizztador</p>
         </center>
     </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

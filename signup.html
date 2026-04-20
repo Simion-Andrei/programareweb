@@ -23,7 +23,7 @@
 
     <main>
         <center class="test">
-            <form action="login.html" target="_self" name="registerForm">
+            <form action="login.html" target="_self" name="registerForm" id="signUpForm">
                 <fieldset>
                     <legend><b>Datele noului cont</b></legend>
                     <p>Alege o parolă puternică!</p>
@@ -37,7 +37,23 @@
                     <br><br>
 
                     <label>Vârsta (în ani): </label>
-                    <input type="number" name="age" min="10" max="99" step="1" value="18">
+                    <input type="number" id="varstaText" name="age" min="10" max="99" step="1" value="18">
+                    <br><br>
+
+                    <label>Data nașterii:</label>
+                    <input type="date" id="dataNasterii" name="dob" min="1925-01-01" max="2016-12-31">
+                    <br><br>
+
+                    <label>Județ:</label>
+                    <select id="judet" name="judet">
+                        <option value="">Alege Județ...</option>
+                    </select>
+                    <br><br>
+
+                    <label>Localitate:</label>
+                    <select id="localitate" name="localitate" disabled>
+                        <option value="">Alege Localitate...</option>
+                    </select>
                     <br><br>
 
                     <label>Invită aliați (adrese email): </label><br>
@@ -61,7 +77,7 @@
                     <textarea name="rules" readonly cols="50" rows="3">Este strict interzisă folosirea programelor de trișat sau a dicționarelor în timpul meciurilor!</textarea>
                     <br><br>
 
-                    <input type="checkbox" name="terms" disabled checked> Sunt de acord cu regulile nescrise și scrise.
+                    <input type="checkbox" name="terms"> Sunt de acord cu regulile nescrise și scrise.
                     <br><br>
 
                     <input type="submit" value="Creează Contul">
@@ -76,5 +92,61 @@
             <p>Quizztador</p>
         </center>
     </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const form = document.getElementById('signUpForm');
+        const inputUser = document.querySelector('input[name="new_user"]');
+        const inputPass = document.querySelector('input[name="new_pass"]');
+        const inputAge = document.querySelector('input[name="age"]');
+        const inputTerms = document.querySelector('input[name=terms]')
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const username = inputUser.value.trim();
+            const password = inputPass.value;
+            const age = parseInt(inputAge.value);
+            const terms = inputTerms.checked;
+
+            let isValid = true;
+
+            if (username === "") {
+                inputUser.style.borderColor = "red";
+                setTimeout(() => {
+                    inputUser.style.borderColor = "";
+                }, 5000);
+                alert("Introdu un nume valid!");
+                isValid = false;
+            }
+
+            if (password === "") {
+                inputPass.style.borderColor = "red";
+                setTimeout(() => {
+                    inputUser.style.borderColor = "";
+                }, 5000);
+                alert("Introdu o parola valida!");
+                isValid = false;
+            }
+
+            if (age < 18) {
+                inputAge.style.borderColor = "red";
+                setTimeout(() => {
+                    inputUser.style.borderColor = "";
+                }, 5000);
+                isValid = false;
+            }
+
+            if (terms === false) {
+                alert("Nu iti poti crea cont fara a accepta regulile!");
+                isValid = false;
+            }
+
+            if (isValid) {
+                form.submit();
+            }
+        });
+    </script>
 </body>
 </html>

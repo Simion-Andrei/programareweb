@@ -65,9 +65,9 @@ select, textarea {
 input[type="text"]:focus, 
 input[type="password"]:focus,
 input[type="email"]:focus {
-    border-color: var(--accent-color);
+    border-color: blue;
     outline: none;
-    box-shadow: 0 0 5px var(--accent-color);
+    box-shadow: 0 0 5px blue;
 }
 
 input[type="submit"], input[type="reset"] {
