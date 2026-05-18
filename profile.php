@@ -4,7 +4,7 @@ require_once 'config/db.php';
 require_once 'config/db_pdo.php';
 require_once 'config/db_sqlite.php';
 
-checkRememberToken($mysqli);
+checkRememberToken($pdo);
 requireLogin();
 
 $uid     = (int)$_SESSION['user_id'];
@@ -115,15 +115,14 @@ $stmt = $pdo->prepare(
 $stmt->execute([$uid]);
 $user = $stmt->fetch();
 
-// ── Fetch battle history (MySQLi – cerința ambelor API-uri) ─────────────────
-$bStmt = $mysqli->prepare(
+// ── Fetch battle history (PDO SQLite) ───────────────────────────────────────
+$bStmt = $pdo->prepare(
     "SELECT opponent, opponent_faction, territory, question_domain,
             score_user, score_opponent, result, xp_gained, battle_date
      FROM battles WHERE user_id = ? ORDER BY battle_date DESC LIMIT 10"
 );
-$bStmt->bind_param('i', $uid);
-$bStmt->execute();
-$battles = $bStmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$bStmt->execute([$uid]);
+$battles = $bStmt->fetchAll();
 
 // ── Stats ────────────────────────────────────────────────────────────────────
 $stmtStats = $pdo->prepare(
@@ -278,7 +277,7 @@ $stats = $stmtStats->fetch();
     <div class="table-wrapper" style="max-width:920px; margin:0 auto 30px;">
         <h3 style="text-align:center; color:#333;">
             Istoric Bătălii Recente
-            <small style="font-size:0.6em; color:#666;">(interogare MySQLi)</small>
+            <small style="font-size:0.6em; color:#666;">(PDO SQLite)</small>
         </h3>
         <?php if (empty($battles)): ?>
             <p style="text-align:center;">Nu ai bătălii înregistrate.</p>

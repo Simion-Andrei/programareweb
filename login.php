@@ -3,7 +3,7 @@ require_once 'includes/auth.php';
 require_once 'config/db.php';
 require_once 'config/db_sqlite.php';
 
-checkRememberToken($mysqli);
+checkRememberToken($pdo);
 
 if (isLoggedIn()) {
     header('Location: home.php');
@@ -29,13 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $stmt = $mysqli->prepare(
+    $stmt = $pdo->prepare(
         "SELECT id, username, password_hash, role, faction, rank_title
          FROM users WHERE username = ? LIMIT 1"
     );
-    $stmt->bind_param('s', $username);
-    $stmt->execute();
-    $user = $stmt->get_result()->fetch_assoc();
+    $stmt->execute([$username]);
+    $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password_hash'])) {
         session_regenerate_id(true);
@@ -49,11 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($remember) {
             $token  = bin2hex(random_bytes(32));
             $expiry = date('Y-m-d H:i:s', strtotime('+30 days'));
-            $upd    = $mysqli->prepare(
+            $upd = $pdo->prepare(
                 "UPDATE users SET remember_token = ?, token_expiry = ? WHERE id = ?"
             );
-            $upd->bind_param('ssi', $token, $expiry, $user['id']);
-            $upd->execute();
+            $upd->execute([$token, $expiry, $user['id']]);
             setcookie('remember_token', $token, [
                 'expires'  => time() + 30 * 24 * 3600,
                 'path'     => '/',

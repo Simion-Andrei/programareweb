@@ -1,12 +1,13 @@
 <?php
-// MySQLi connection — used for auth queries (login, signup, remember-me)
-define('DB_HOST', 'localhost');
-define('DB_USER', 'quizz');
-define('DB_PASS', 'quizz123');
-define('DB_NAME', 'quizztador');
+// PDO SQLite — conexiune principală (users + battles)
+$dbPath = __DIR__ . '/../data/quizztador.db';
 
-$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-if ($mysqli->connect_error) {
-    die('Eroare conexiune MySQLi: ' . htmlspecialchars($mysqli->connect_error));
+try {
+    $pdo = new PDO('sqlite:' . $dbPath, null, null, [
+        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    ]);
+    $pdo->exec('PRAGMA foreign_keys = ON');
+} catch (PDOException $e) {
+    die('Eroare conexiune SQLite: ' . htmlspecialchars($e->getMessage()));
 }
-$mysqli->set_charset('utf8mb4');

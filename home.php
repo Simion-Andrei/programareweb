@@ -4,7 +4,7 @@ require_once 'config/db.php';
 require_once 'config/db_pdo.php';
 require_once 'config/db_sqlite.php';
 
-checkRememberToken($mysqli);
+checkRememberToken($pdo);
 requireLogin();
 
 $user = $_SESSION;

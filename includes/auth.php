@@ -22,8 +22,8 @@ function requireRole(string $role, string $redirect = 'home.php'): void {
     }
 }
 
-// Auto-login via remember_me cookie (MySQLi)
-function checkRememberToken(mysqli $db): void {
+// Auto-login via remember_me cookie (PDO SQLite)
+function checkRememberToken(PDO $db): void {
     if (isLoggedIn() || !isset($_COOKIE['remember_token'])) {
         return;
     }
@@ -31,12 +31,11 @@ function checkRememberToken(mysqli $db): void {
     $stmt  = $db->prepare(
         "SELECT id, username, role, faction, rank_title
          FROM users
-         WHERE remember_token = ? AND token_expiry > NOW()
+         WHERE remember_token = ? AND token_expiry > datetime('now')
          LIMIT 1"
     );
-    $stmt->bind_param('s', $token);
-    $stmt->execute();
-    $user = $stmt->get_result()->fetch_assoc();
+    $stmt->execute([$token]);
+    $user = $stmt->fetch();
     if ($user) {
         $_SESSION['user_id']    = $user['id'];
         $_SESSION['username']   = $user['username'];

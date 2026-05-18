@@ -4,7 +4,7 @@ require_once 'config/db.php';
 require_once 'config/db_pdo.php';
 require_once 'config/db_sqlite.php';
 
-checkRememberToken($mysqli);
+checkRememberToken($pdo);
 requireRole('admin');   // Only admins may access this page
 
 $error   = '';
@@ -116,7 +116,7 @@ if ($sqlite !== null) {
     <!-- Lista utilizatori -->
     <div class="section-box">
         <h3>Toți utilizatorii
-            <small style="font-size:0.6em;color:#666;">(interogare PDO MySQL)</small>
+            <small style="font-size:0.6em;color:#666;">(PDO SQLite)</small>
         </h3>
         <table class="admin-table">
             <thead>

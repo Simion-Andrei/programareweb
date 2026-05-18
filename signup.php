@@ -39,20 +39,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif (!in_array($rank, $validRanks, true)) {
         $error = 'Rang invalid.';
     } else {
-        // Check username uniqueness with MySQLi
-        $chk = $mysqli->prepare("SELECT id FROM users WHERE username = ? LIMIT 1");
-        $chk->bind_param('s', $username);
-        $chk->execute();
-        if ($chk->get_result()->num_rows > 0) {
+        // Check username uniqueness
+        $chk = $pdo->prepare("SELECT id FROM users WHERE username = ? LIMIT 1");
+        $chk->execute([$username]);
+        if ($chk->fetch() !== false) {
             $error = 'Acest nume de utilizator este deja folosit.';
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
-            $ins  = $mysqli->prepare(
+            $ins  = $pdo->prepare(
                 "INSERT INTO users (username, password_hash, email, role, faction, rank_title)
                  VALUES (?, ?, ?, 'player', ?, ?)"
             );
-            $ins->bind_param('sssss', $username, $hash, $email, $faction, $rank);
-            if ($ins->execute()) {
+            if ($ins->execute([$username, $hash, $email, $faction, $rank])) {
                 header('Location: login.php?msg=' . urlencode('Cont creat cu succes! Te poți autentifica acum.'));
                 exit;
             } else {

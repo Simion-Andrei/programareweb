@@ -6,11 +6,10 @@ require_once 'config/db_sqlite.php';
 if (isLoggedIn()) {
     // Clear remember_me token from DB
     if (isset($_COOKIE['remember_token'])) {
-        $stmt = $mysqli->prepare(
+        $stmt = $pdo->prepare(
             "UPDATE users SET remember_token = NULL, token_expiry = NULL WHERE id = ?"
         );
-        $stmt->bind_param('i', $_SESSION['user_id']);
-        $stmt->execute();
+        $stmt->execute([$_SESSION['user_id']]);
         setcookie('remember_token', '', ['expires' => time() - 3600, 'path' => '/']);
     }
 
