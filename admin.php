@@ -82,6 +82,7 @@ if ($sqlite !== null) {
     <ul id="navi-bar">
         <li><a href="home.php">&#127968; Acasă</a></li>
         <li><a href="profile.php">&#128100; Profil</a></li>
+        <li><a href="battles_json.php">&#9876; Batalii</a></li>
         <li><a href="admin.php">&#9881; Admin</a></li>
         <li><a href="logout.php">&#128274; Deconectare</a></li>
     </ul>

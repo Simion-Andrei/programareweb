@@ -74,9 +74,18 @@ $uid = $row['id'] ?? null;
 
 if ($uid) {
     $battles = [
-        [$uid, 'player2', 'Hoarda Verde',    'Moldova',      'Istorie',    5, 3, 'victorie',   150, '2023-11-12'],
-        [$uid, 'player3', 'Alianta Albastra', 'Transilvania', 'Stiinte',    2, 5, 'infrangere',  10, '2023-11-10'],
-        [$uid, 'player3', 'Hoarda Verde',    'Muntenia',     'Literatura', 4, 4, 'remiza',       50, '2023-11-08'],
+        [$uid, 'player2',   'Hoarda Verde',     'Moldova',        'Istorie',       5, 3, 'victorie',    150, '2024-03-15'],
+        [$uid, 'player3',   'Alianta Albastra', 'Transilvania',   'Stiinte',       2, 5, 'infrangere',   10, '2024-03-12'],
+        [$uid, 'player3',   'Hoarda Verde',     'Muntenia',       'Literatura',    4, 4, 'remiza',        50, '2024-03-10'],
+        [$uid, 'Dragonul',  'Imperiul Rosu',    'Dobrogea',       'Geografie',     6, 2, 'victorie',    200, '2024-03-08'],
+        [$uid, 'Vulturul',  'Imperiul Albastru','Oltenia',        'Matematica',    3, 5, 'infrangere',   20, '2024-03-05'],
+        [$uid, 'player4',   'Hoarda Verde',     'Banat',          'Istorie',       5, 5, 'remiza',        60, '2024-03-03'],
+        [$uid, 'Lupul Gri', 'Alianta Albastra', 'Crisana',        'Stiinte',       7, 1, 'victorie',    250, '2024-02-28'],
+        [$uid, 'player2',   'Hoarda Verde',     'Maramures',      'Literatura',    4, 3, 'victorie',    130, '2024-02-25'],
+        [$uid, 'Corbul',    'Imperiul Rosu',    'Bucovina',       'Geografie',     2, 6, 'infrangere',   15, '2024-02-22'],
+        [$uid, 'player5',   'Imperiul Albastru','Moldova',        'Matematica',    5, 5, 'remiza',        55, '2024-02-20'],
+        [$uid, 'Soimul',    'Hoarda Verde',     'Transilvania',   'Istorie',       8, 0, 'victorie',    300, '2024-02-18'],
+        [$uid, 'player3',   'Alianta Albastra', 'Muntenia',       'Stiinte',       3, 4, 'infrangere',   25, '2024-02-15'],
     ];
     $bi = $pdo->prepare(
         "INSERT INTO battles

@@ -166,6 +166,7 @@ $stats = $stmtStats->fetch();
     <ul id="navi-bar">
         <li><a href="home.php"><i class="icon icon-home"></i> Acasă</a></li>
         <li><a href="profile.php"><i class="icon icon-profile"></i> Profil</a></li>
+        <li><a href="battles_json.php">&#9876; Batalii</a></li>
         <?php if ($_SESSION['user_role'] === 'admin'): ?>
         <li><a href="admin.php">&#9881; Admin</a></li>
         <?php endif; ?>

@@ -66,12 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style-vertical.css">
     <title>Quizztador - Înregistrare</title>
-    <style>
-        .main-content { margin-left: 270px; padding: 30px; }
-        .alert-error { color: #c0392b; background: #fde8e8; border: 1px solid #e74c3c; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
-        fieldset { border: 2px solid #2c3e50; border-radius: 8px; padding: 25px; background: #fff; max-width: 420px; }
-        legend { font-weight: bold; color: #2c3e50; padding: 0 10px; }
-    </style>
 </head>
 <body>
     <ul id="navi-bar">
@@ -136,7 +130,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <br><a href="login.php">Ai deja cont? Autentifică-te!</a>
     </div>
 
-    <footer style="margin-left:270px; padding:10px; text-align:center;">
+    <footer class="auth-footer">
         <p>Quizztador &copy; 2024</p>
     </footer>
 </body>

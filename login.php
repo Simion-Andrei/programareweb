@@ -75,16 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style-vertical.css">
     <title>Quizztador - Autentificare</title>
-    <style>
-        .main-content { margin-left: 270px; padding: 30px; }
-        .alert-error   { color: #c0392b; background: #fde8e8; border: 1px solid #e74c3c; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
-        .alert-success { color: #1a6e1a; background: #e8fde8; border: 1px solid #27ae60; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
-        .captcha-wrap  { display: flex; align-items: center; gap: 10px; margin: 8px 0; }
-        .captcha-wrap img { border: 2px solid #ccc; border-radius: 5px; }
-        .captcha-wrap a { color: #2c3e50; font-size: 0.85em; text-decoration: underline; }
-        fieldset { border: 2px solid #2c3e50; border-radius: 8px; padding: 25px; background: #fff; max-width: 360px; }
-        legend { font-weight: bold; color: #2c3e50; padding: 0 10px; }
-    </style>
 </head>
 <body>
     <ul id="navi-bar">
@@ -103,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p class="alert-success"><?= $success ?></p>
         <?php endif; ?>
 
-        <form method="post" action="login.php">
+        <form method="post" action="login.php" class="login-form">
             <fieldset>
                 <legend>Date de autentificare</legend>
 
@@ -134,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="signup.php">Nu ai cont? Creează-l aici!</a>
     </div>
 
-    <footer style="margin-left:270px; padding:10px; text-align:center;">
+    <footer class="auth-footer">
         <p>Quizztador &copy; 2024</p>
     </footer>
 </body>
